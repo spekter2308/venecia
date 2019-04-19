@@ -1,0 +1,277 @@
+GGS Shell Checking System
+===Shell Check List===
+     RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+/home/veneziaonlinecom/public_html//src/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/EsmtpHandler.php: Suspicious(EHLO):
+      * Set the parameters which the EHLO greeting indicated.
+
+/home/veneziaonlinecom/public_html//src/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/AbstractSmtpTransport.php: Suspicious(MAIL FROM):
+     /** Send the MAIL FROM command */
+
+/home/veneziaonlinecom/public_html//src/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/Esmtp/AuthHandler.php: Suspicious(EHLO):
+      * Set the parameters which the EHLO greeting indicated.
+
+/home/veneziaonlinecom/public_html//src/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/Esmtp/Auth/CramMd5Authenticator.php: Suspicious(base64_decode):
+             $challenge = base64_decode(substr($challenge, 4));
+
+/home/veneziaonlinecom/public_html//src/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/Esmtp/Auth/NTLMAuthenticator.php: Suspicious(base64_decode):
+             $response = base64_decode(substr(trim($this->sendMessage1($agent)), 4));
+
+/home/veneziaonlinecom/public_html//src/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/EsmtpTransport.php: Suspicious(EHLO):
+     /** Overridden to perform EHLO instead */
+
+/home/veneziaonlinecom/public_html//src/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Plugins/PopBeforeSmtpPlugin.php: Suspicious(fsockopen):
+                 if (!$socket = fsockopen(
+
+/home/veneziaonlinecom/public_html//src/vendor/swiftmailer/swiftmailer/tests/bug/Swift/Bug51Test.php: Suspicious(base64_decode):
+         $this->assertIdenticalBinary($attachmentData, base64_decode($attachmentBase64));
+
+/home/veneziaonlinecom/public_html//src/vendor/swiftmailer/swiftmailer/tests/acceptance/Swift/Mime/ContentEncoder/Base64ContentEncoderAcceptanceTest.php: Suspicious(base64_decode):
+                         base64_decode($encoded), $text,
+
+/home/veneziaonlinecom/public_html//src/vendor/swiftmailer/swiftmailer/tests/acceptance/Swift/Encoder/Base64EncoderAcceptanceTest.php: Suspicious(base64_decode):
+                         base64_decode($encodedText), $text,
+
+/home/veneziaonlinecom/public_html//src/vendor/swiftmailer/swiftmailer/tests/unit/Swift/Transport/EsmtpTransportTest.php: Suspicious(EHLO):
+         //Overridden for EHLO instead
+
+/home/veneziaonlinecom/public_html//src/vendor/swiftmailer/swiftmailer/tests/unit/Swift/Transport/AbstractSmtpTest.php: Suspicious(EHLO):
+          received it, the client normally sends the EHLO command to the
+
+/home/veneziaonlinecom/public_html//src/vendor/swiftmailer/swiftmailer/tests/unit/Swift/Transport/EsmtpTransport/ExtensionSupportTest.php: Suspicious(EHLO):
+             ->with('~^EHLO .*?\r\n$~D')
+
+/home/veneziaonlinecom/public_html//src/vendor/swiftmailer/swiftmailer/tests/unit/Swift/Transport/AbstractSmtpEventSupportTest.php: Suspicious(MAIL FROM):
+             ->with("MAIL FROM:<chris@swiftmailer.org>\r\n")
+
+/home/veneziaonlinecom/public_html//src/vendor/swiftmailer/swiftmailer/tests/unit/Swift/Plugins/BandwidthMonitorPluginTest.php: Suspicious(RCPT TO):
+         $evt = $this->_createCommandEvent("RCPT TO:<foo@bar.com>\r\n");
+
+/home/veneziaonlinecom/public_html//src/vendor/intervention/image/src/Intervention/Image/AbstractDecoder.php: Suspicious(base64_decode):
+         return base64_encode(base64_decode($this->data)) === $this->data;
+
+/home/veneziaonlinecom/public_html//src/vendor/psy/psysh/src/Psy/Readline/GNUReadline.php: Suspicious(open_basedir):
+         // If open_basedir is set, readline_read_history() segfaults. This will be fixed in 5.6.7:
+
+/home/veneziaonlinecom/public_html//src/vendor/monolog/monolog/tests/Monolog/Handler/PushoverHandlerTest.php: Suspicious(fsockopen):
+             array('fsockopen', 'streamSetTimeout', 'closeSocket'),
+
+/home/veneziaonlinecom/public_html//src/vendor/monolog/monolog/tests/Monolog/Handler/LogEntriesHandlerTest.php: Suspicious(fsockopen):
+             array('fsockopen', 'streamSetTimeout', 'closeSocket'),
+
+/home/veneziaonlinecom/public_html//src/vendor/monolog/monolog/tests/Monolog/Handler/FlowdockHandlerTest.php: Suspicious(fsockopen):
+             array('fsockopen', 'streamSetTimeout', 'closeSocket'),
+
+/home/veneziaonlinecom/public_html//src/vendor/monolog/monolog/tests/Monolog/Handler/SlackHandlerTest.php: Suspicious(fsockopen):
+             array('fsockopen', 'streamSetTimeout', 'closeSocket'),
+
+/home/veneziaonlinecom/public_html//src/vendor/monolog/monolog/tests/Monolog/Handler/HipChatHandlerTest.php: Suspicious(fsockopen):
+             array('fsockopen', 'streamSetTimeout', 'closeSocket'),
+
+/home/veneziaonlinecom/public_html//src/vendor/monolog/monolog/tests/Monolog/Handler/SocketHandlerTest.php: Suspicious(fsockopen):
+         $this->setMockHandler(array('fsockopen'));
+
+/home/veneziaonlinecom/public_html//src/vendor/monolog/monolog/src/Monolog/Handler/DeduplicationHandler.php: Suspicious(passthru):
+         $passthru = null;
+
+/home/veneziaonlinecom/public_html//src/vendor/monolog/monolog/src/Monolog/Handler/FingersCrossedHandler.php: Suspicious(passthru):
+     protected $passthruLevel;
+
+/home/veneziaonlinecom/public_html//src/vendor/monolog/monolog/src/Monolog/Handler/SocketHandler.php: Suspicious(fsockopen):
+  * Stores to any socket - uses fsockopen() or pfsockopen().
+
+/home/veneziaonlinecom/public_html//src/vendor/sebastian/environment/src/Console.php: Suspicious(function_exists('shell_exec')):
+         if (function_exists('shell_exec') && preg_match('#\d+ (\d+)#', shell_exec('stty size'), $match) === 1) {
+
+/home/veneziaonlinecom/public_html//src/vendor/stripe/stripe-php/build.php: Suspicious(passthru):
+ passthru('composer install', $returnStatus);
+
+/home/veneziaonlinecom/public_html//src/vendor/mockery/mockery/library/Mockery/Expectation.php: Suspicious(passthru):
+     protected $_passthru = false;
+
+/home/veneziaonlinecom/public_html//src/vendor/mockery/mockery/library/Mockery/Mock.php: Suspicious(passthru):
+      * Calls a parent class method and returns the result. Used in a passthru
+
+/home/veneziaonlinecom/public_html//src/vendor/mockery/mockery/tests/Mockery/ExpectationTest.php: Suspicious(passthru):
+         $mock->shouldReceive('foo')->once()->passthru();
+
+/home/veneziaonlinecom/public_html//src/vendor/mockery/mockery/tests/Mockery/MockTest.php: Suspicious(passthru):
+         $mock->shouldReceive('bar')->passthru();
+
+/home/veneziaonlinecom/public_html//src/vendor/fzaninotto/faker/src/Faker/Provider/hy_AM/Internet.php: Suspicious(yandex.ru):
+     protected static $freeEmailDomain = array('gmail.com', 'yahoo.com', 'hotmail.com', 'yandex.ru', 'mail.ru', 'mail.am');
+
+/home/veneziaonlinecom/public_html//src/vendor/fzaninotto/faker/src/Faker/Provider/en_US/Text.php: Suspicious(this bot):
+ However, this bottle was NOT marked 'poison,' so Alice ventured to taste
+
+/home/veneziaonlinecom/public_html//src/vendor/fzaninotto/faker/src/Faker/Provider/de_AT/Person.php: Suspicious(hacker):
+         'Falkner', 'Fasching', 'Feichtinger', 'Fellner', 'Fiala', 'Fichtinger', 'Fiedler', 'Fink', 'Fischer', 'Fleischhacker', 'Forster', 'Forstner', 'Frank', 'Franz', 'Friedl', 'Friedrich', 'Fritsch', 'Fritz', 'FrÃ¶hlich', 'FrÃ¼hwirth', 'Fuchs', 'FÃ¼hrer', 'FÃ¼rst',
+
+/home/veneziaonlinecom/public_html//src/vendor/fzaninotto/faker/src/Faker/Provider/ru_RU/Internet.php: Suspicious(yandex.ru):
+     protected static $freeEmailDomain = array('yandex.ru', 'ya.ru', 'narod.ru', 'gmail.com', 'mail.ru', 'list.ru', 'bk.ru', 'inbox.ru', 'rambler.ru', 'hotmail.com');
+
+/home/veneziaonlinecom/public_html//src/vendor/paragonie/random_compat/lib/random.php: Suspicious(open_basedir):
+         $RandomCompat_basedir = ini_get('open_basedir');
+
+/home/veneziaonlinecom/public_html//src/vendor/paragonie/random_compat/lib/random_bytes_com_dotnet.php: Suspicious(base64_decode):
+             $buf .= base64_decode($util->GetRandom($bytes, 0));
+
+/home/veneziaonlinecom/public_html//src/vendor/paragonie/random_compat/lib/random_bytes_dev_urandom.php: Suspicious(open_basedir):
+      * Unless open_basedir is enabled, use /dev/urandom for
+
+/home/veneziaonlinecom/public_html//src/vendor/laravel/framework/src/Illuminate/Session/LegacyDatabaseSessionHandler.php: Suspicious(return base64_decode():
+             return base64_decode($session->payload);
+
+/home/veneziaonlinecom/public_html//src/vendor/laravel/framework/src/Illuminate/Session/DatabaseSessionHandler.php: Suspicious(return base64_decode():
+             return base64_decode($session->payload);
+
+/home/veneziaonlinecom/public_html//src/vendor/laravel/framework/src/Illuminate/Auth/Passwords/PasswordBrokerManager.php: Suspicious(base64_decode):
+             $key = base64_decode(substr($key, 7));
+
+/home/veneziaonlinecom/public_html//src/vendor/laravel/framework/src/Illuminate/Encryption/EncryptionServiceProvider.php: Suspicious(base64_decode):
+                 $key = base64_decode(substr($key, 7));
+
+/home/veneziaonlinecom/public_html//src/vendor/laravel/framework/src/Illuminate/Encryption/Encrypter.php: Suspicious(base64_decode):
+         $iv = base64_decode($payload['iv']);
+
+/home/veneziaonlinecom/public_html//src/vendor/laravel/framework/src/Illuminate/Encryption/McryptEncrypter.php: Suspicious(base64_decode):
+         $value = base64_decode($payload['value']);
+
+/home/veneziaonlinecom/public_html//src/vendor/laravel/framework/src/Illuminate/Encryption/BaseEncrypter.php: Suspicious(base64_decode):
+         $payload = json_decode(base64_decode($payload), true);
+
+/home/veneziaonlinecom/public_html//src/vendor/laravel/framework/src/Illuminate/Foundation/Console/ServeCommand.php: Suspicious(passthru):
+                 passthru("{$binary} -m server -v Server.Type=proxygen -v Server.SourceRoot={$base}/ -v Server.IP={$host} -v Server.Port={$port} -v Server.DefaultDocument=server.php -v Server.ErrorDocument404=server.php");
+
+/home/veneziaonlinecom/public_html//src/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php: Suspicious(passthru):
+     protected $passthru = [
+
+/home/veneziaonlinecom/public_html//src/vendor/phpunit/phpunit/src/Util/Printer.php: Suspicious(fsockopen):
+                     $this->out = fsockopen($out[0], $out[1]);
+
+/home/veneziaonlinecom/public_html//src/vendor/phpunit/phpunit/src/Extensions/PhptTestCase.php: Suspicious(disable_functions):
+         'disable_functions=',
+
+/home/veneziaonlinecom/public_html//src/vendor/dompdf/dompdf/lib/class.pdf.php: Suspicious(base64_decode):
+       $tmp = $this->fonts[$fontFileName]['CIDtoGID'] = base64_decode($this->fonts[$fontFileName]['CIDtoGID']);
+
+/home/veneziaonlinecom/public_html//src/vendor/dompdf/dompdf/include/functions.inc.php: Suspicious(base64_decode):
+     'data'    => $match['base64'] ? base64_decode($match['data']) : $match['data'],
+
+/home/veneziaonlinecom/public_html//src/vendor/nikic/php-parser/grammar/rebuildParsers.php: Suspicious(shell_exec):
+     $output = trim(shell_exec("$kmyacc $additionalArgs -l -m $skeletonFile -p $name $tmpGrammarFile 2>&1"));
+
+/home/veneziaonlinecom/public_html//src/vendor/phpoffice/phpexcel/Classes/PHPExcel/Shared/PCLZip/gnu-lgpl.txt: Suspicious(Hacker):
+   library `Frob' (a library for tweaking knobs) written by James Random Hacker.
+
+/home/veneziaonlinecom/public_html//src/vendor/phpoffice/phpexcel/Classes/PHPExcel/Shared/File.php: Suspicious(open_basedir):
+ 			//      open_basedir configs
+
+/home/veneziaonlinecom/public_html//src/vendor/phpoffice/phpexcel/Classes/PHPExcel/Shared/OLERead.php: Suspicious(Hacked):
+ 		// Hacked by Andreas Rehm 2006 to ensure correct result of the <<24 block on 32 and 64bit systems
+
+/home/veneziaonlinecom/public_html//src/vendor/phpoffice/phpexcel/Classes/PHPExcel/Reader/Excel5.php: Suspicious(Hacked):
+ 		// Hacked by Andreas Rehm 2006 to ensure correct result of the <<24 block on 32 and 64bit systems
+
+/home/veneziaonlinecom/public_html//src/vendor/phpoffice/phpexcel/Examples/runall.php: Suspicious(shell_exec):
+ 	echo shell_exec('php ' . $sTest);
+
+/home/veneziaonlinecom/public_html//src/vendor/phpoffice/phpexcel/changelog.txt: Suspicious(open_basedir):
+ - Bugfix:   (ET) Work item 10560 - PHPExcel_Writer_Excel5 not working when open_basedir restriction is in effect
+
+/home/veneziaonlinecom/public_html//src/vendor/patchwork/utf8/src/Patchwork/PHP/Shim/Mbstring.php: Suspicious(base64_decode):
+             $s = base64_decode($s);
+
+/home/veneziaonlinecom/public_html//src/vendor/patchwork/utf8/src/Patchwork/PHP/Shim/Iconv.php: Suspicious(base64_decode):
+                 $d = base64_decode($str[$i + 2]);
+
+/home/veneziaonlinecom/public_html//src/vendor/jeremeamia/SuperClosure/src/Serializer.php: Suspicious(base64_decode):
+             $signature = base64_decode(substr($serialized, 1, 44));
+
+/home/veneziaonlinecom/public_html//src/vendor/symfony/yaml/Inline.php: Suspicious(return base64_decode():
+         return base64_decode($parsedBinaryData, true);
+
+/home/veneziaonlinecom/public_html//src/vendor/symfony/process/Tests/ExecutableFinderTest.php: Suspicious(open_basedir):
+         if (ini_get('open_basedir')) {
+
+/home/veneziaonlinecom/public_html//src/vendor/symfony/process/ExecutableFinder.php: Suspicious(open_basedir):
+         if (ini_get('open_basedir')) {
+
+/home/veneziaonlinecom/public_html//src/vendor/symfony/dom-crawler/Tests/CrawlerTest.php: Suspicious(base64_decode):
+         $crawler->addHtmlContent(base64_decode('PGh0bWw+PHA+1tDOxDwvcD48L2h0bWw+'), 'gbk');
+
+/home/veneziaonlinecom/public_html//src/vendor/symfony/debug/Exception/ClassNotFoundException.php: Suspicious(yandex.ru):
+  * @author Konstanton Myakshin <koc-dp@yandex.ru>
+
+/home/veneziaonlinecom/public_html//src/vendor/symfony/debug/Exception/UndefinedFunctionException.php: Suspicious(yandex.ru):
+  * @author Konstanton Myakshin <koc-dp@yandex.ru>
+
+/home/veneziaonlinecom/public_html//src/vendor/symfony/debug/Exception/FatalErrorException.php: Suspicious(yandex.ru):
+  * @author Konstanton Myakshin <koc-dp@yandex.ru>
+
+/home/veneziaonlinecom/public_html//src/vendor/symfony/console/Helper/QuestionHelper.php: Suspicious(shell_exec):
+         $sttyMode = shell_exec('stty -g');
+
+/home/veneziaonlinecom/public_html//src/vendor/symfony/http-foundation/File/MimeType/FileBinaryMimeTypeGuesser.php: Suspicious(passthru):
+         return '\\' !== DIRECTORY_SEPARATOR && function_exists('passthru') && function_exists('escapeshellarg');
+
+/home/veneziaonlinecom/public_html//src/vendor/symfony/http-foundation/ServerBag.php: Suspicious(base64_decode):
+                     $exploded = explode(':', base64_decode(substr($authorizationHeader, 6)), 2);
+
+/home/veneziaonlinecom/public_html//src/vendor/symfony/polyfill-mbstring/Mbstring.php: Suspicious(base64_decode):
+             $s = base64_decode($s);
+
+/home/veneziaonlinecom/public_html//src/node_modules/stream-http/test/server/static/browserify.png: Suspicious(c99):
+ …B±éPÂümÄ¼…WüO %h‰)¥Ç„ŸG²ˆÀ'„üš—…úï…'€s{{ºÕ¥P(£Œò™¿˜·ğŠ)ĞoíïŠ<!Ğ3k‘Ösˆ¥ª×Æ.ÀõÀ7€ï5x…B¡PTBiæoqæ-¼â_O¡%Ë£ĞrFc99`¯Şî'Gc2…B¡PH”0‹2ïÄËÛ-q_ §ö¬v®Yğ£±,€ÅÀ¼Şno´&T(Šw:Ú¦^€¢væxù®ZZN‹B=³zãk9ÀÀÂÑœP¡P(Şé(Íü-Æ»O¹ú«Ú%M/=&-·áå6ÅÒŠéGšÛŸİÔQ(ŠwJ˜¿…˜ÆõÇ‘l¿,?0Òÿ-¼zvƒAnc€æöQ5(
+
+/home/veneziaonlinecom/public_html//src/node_modules/watchify/node_modules/stream-http/test/server/static/browserify.png: Suspicious(c99):
+ …B±éPÂümÄ¼…WüO %h‰)¥Ç„ŸG²ˆÀ'„üš—…úï…'€s{{ºÕ¥P(£Œò™¿˜·ğŠ)ĞoíïŠ<!Ğ3k‘Ösˆ¥ª×Æ.ÀõÀ7€ï5x…B¡PTBiæoqæ-¼â_O¡%Ë£ĞrFc99`¯Şî'Gc2…B¡PH”0‹2ïÄËÛ-q_ §ö¬v®Yğ£±,€ÅÀ¼Şno´&T(Šw:Ú¦^€¢væxù®ZZN‹B=³zãk9ÀÀÂÑœP¡P(Şé(Íü-Æ»O¹ú«Ú%M/=&-·áå6ÅÒŠéGšÛŸİÔQ(ŠwJ˜¿…˜ÆõÇ‘l¿,?0Òÿ-¼zvƒAnc€æöQ5(
+
+/home/veneziaonlinecom/public_html//src/node_modules/weinre/web/doc/images/panel-console.png: Suspicious(c99):
+ «û‹S›+}ÆH¥|ÛÜ¹bøË®ÕgtÜçŸ>>øÁÆqÇWğL‰’^.zÊtñÅÇ…^XŸãöíÛ=D  €  €ÀÌ	”ÉÑ¾}ûâë_ÿzş’¯¹¼ïwàÚó6´7AÒIê­rÓ_¬ëQûiÎŠóÊÄÈêsGQô4J/=I:ï¼óêo¯{ì±ÇêCë÷ôõŞÊš[­V=o#Î‰c €  €  p8š’#}AƒŸ$-ÓX÷ùÕ\ç®§½¤±ö7Aj:ÀISn›;lâM¯¦}6]l~~>ôR9æ˜cêo©S2¤âšå+¾kşA @ ˜a{ï½7¾ùÍo’!=9ÊÉ‘ú§vZhÊk*Û4æX^›Û«^¯o±Ë'”Ûù¤osÜu^³©ÛJ„ôö½N§S¿Ô&9ÚÔ2N@ @`”ü¬”)YZ,¾Ïwí¸ëaqkÌ%·›º4Ašä$Ê¹î«Îm]D¹Ÿkµ) €  €  °Éš•OÜ_<õ2P8çy<·ó•;cÃÚ“ÌÖ¨'Õ[Åü:ÌmÕn+Ár[µú©?·8î¸jÇôö>÷SÛ1ÕŠ½æÙgŸ½úÀUsãŠ¾XáöÛoİ»wÇá:öé§Ÿ¾qÌ‘@ @ Ø ã?ş}Õ¡î­^ú¶5ı€©¾]Íµbz9¦äÆ}ÅôrLµ^9^u1·5Çí~cD4Ígú‡Yş¯îhÙW\1%OS]¶ëuÔQ¨Æ•,9‰r²•c99ó¸bziŠû®ËµÚ@ @ ¶ª@¾/—Áà¾|±­˜Çœ¸V\íœèxÌ1¯Íuµd°§Û¹V[Åkú½ş¿Š­YY‹I'¤¤cTi:éòâòí­6uÂãÚ‰’kÛcªÕ×˜ÏÉ1õó«êŠç4@ @ Ø‚ù\—ïûò\+áQQÌÉ’“ ÕŠ«ÖX®Ë9šçR¶s¿iceİ´®œ3²¿	Ry ŸT™t(îW^ãXS-Dí£1•<Gc*J€WL}¯ÓÚÜVß¯ª9H¢Ô¦ €  €  °Õò}·,|Ÿ=ªÖıvW¿Œå½Ê±¼Ví\òX«í±2>Ud‚T½5¯W|ÉÓÉ8qQİT|ÂWßÅc®w»©Ö¸ ©íãk¾ú*÷š£Ø°¢y*>Ç~@ @ Øš¾?öÕû¾:×Np4ÇqÅÏ±ÜÎóÏuÓ¸b*šçâ5î—µçº^6®gY èŒLŠ¹«íúrB£½|bå¸Çì5j;ùq[µ‹Ær_q'=Š«íWó×£ €  €  °Uò=ºrß÷í¹Ö½¶_Š»­Ú}Ïw,Ç«i‡cTLk×µ¬U‚äU¢¡¶ÜÎâx®ÕÖKpN†Ü÷~SÛu¹FqÍÓË{¹¯ÚEëUr¬á_@ @ ¶€ï}å¾ßv­¸î¹İWÛ}×yLmÅUÜö¸båÏËµÚ¹h½‹ÛyO­ª^«É×‰9Ù(Ûù¤ÕVq¬¬å§BÚOã9æ±*\3ÇóZ·s½¸tÙú£  €  €ÀVğ}º¯»¼O/ûNpTkk/ù¾>×åê«äÚsú#KcyÇ¦ªW“ éä”hŒ*yNÙV_EuÙv¬ŒTÇT“ ª[—|>n«ÖKóµŸû®«Ğ (FA @ @`«ø>ÜùşÜcÃ’ÇUû¥59îı´¿Û¹÷˜j­[©Œ3gÙ“$HÚ<'>XióaóÏµÚÓjç—âN†4î¾æ¨x­Ú§¶ÏGµ÷u;•sÕ§ €  €  °•ò½¶r_íòU&?ê;–ç:VÖyÚW[eXİ]wßk¼Îñ²ïø!õ$	Ò!‹Gt99q_KÔö«ì;.¯WLı\œ9áÑÅTs[qÇTûåqÕ@ @ XĞıµŠïÏsßIŒÆİVÛ^ç¸kÇU{~©­’cıH?æ±\{|MêµHtòJ:|1NF÷‰ú"ÕwÛkÜ’÷*ÛŞÇµ"ÍsÂ¤1¯W]¶Ó<õU\÷{ü‹  €  €ÀÖÈ÷çğ½ú¨ÚÉkÍU»|yrã£jŸjÍsñõsÜãÕk‘ 5P'æäDã¹Ÿ“‘W[/ay­Ú*9êGúÿjÆô+½ªµ^µâ>NÙÏcSM§ €  €  €À¢€î«U|Û¾G÷˜“Çs_m¿4?·İ÷>ªU\÷{Kı•æyşTõZ%H:Y'n»Ö	úbrÛ±aµğrQ¢SÆtL­÷Xîk­ÏÉmõË˜Æ( €  €  °$ {l—|¿®˜îÉ=î¶çä¾Ú~iÜm×^3I]mS­Qq]¶ëÁÕü³	’N*'åyxÜµÆÕöK@Z_ÖNzª¡AqLkUrÂã¶j+·ËùîçZm
+
+/home/veneziaonlinecom/public_html//src/node_modules/jquery/AUTHORS.txt: Suspicious(yandex.ru):
+ Veaceslav Grimalschi <grimalschi@yandex.ru>
+
+/home/veneziaonlinecom/public_html//src/public/images/Cameras/Canon_Digital_DSLR_Camera_3.jpg: Suspicious(c99):
+ ä’Tàzi,•kƒÆœ­°‚Oü´­¥×EŸÆzü?mûUÑ¶´¶x÷Çn€Ã×¸ÏLSUg±‹Äz0¼khôıRFš}>{X|­ğÆÁC=	 ‚{*Æ¬Màñqawe%Î’Ò´ÖÓB»Ú-ßxî:~9àçŒØ.á·Ñ Òü?a+?–ÑFêa›$–Æ[`tâ]ë_ØYİ°ÙæÂ†ê9Ç¶zUùX„Fi±Š©md–vöÈ0 Œ1#$p2MZËIÏ Œué@Åñu ½²·¿B®eù\ÉV¿­r¡ßÁÁ#§qô®ÚÇı;M»±eóY ’<àÛØW«µ’X7L”Ñ€2Of#¨õ¥™Y”Œc99oj-ÈUI>½YØ_$û
+
+/home/veneziaonlinecom/public_html//src/public/ProductPhotos/photos/fee4c01c3a80797dda97108f41ba28ad87b2ad74.jpg: Suspicious(c99):
+ ËêğI²ÛìÎ<™¦í•;Škf_ê}™»ke¦T£$¸"çV'ˆ¾ÙìI;c99FysI5P°Û)¨½ØÌŸl3Iç¥Ç“kdxËÏ”o,ìjKfhÛ|¹gãäßv?Ôœ¸kä‰%¿…Œ¾ÆË\»>~‚Æí´e%„ødŠyb,q”3•–mµìøËËdØ©[)§Ş+orT–2¸O²ÉÅsã-®ÏÁ$døş©yÇ‚,\©`á($ç·Îß©^ßæÎQ„¤ÔMò÷ná·ôìIEğªéJPõ¢×<ãcÅF\Å
+
+/home/veneziaonlinecom/public_html//src/public/ProductPhotos/photos/68a6bdd72852c071cf4db8fefb06752b4cd5b260.jpg: Suspicious(c99):
+ ¿]`ãïg8ç8è=¹ıxÏQÏç‡ƒ58­<[á«‰f¢kÚJ»ÊÛ&¾‚&PS%VQ!I	;^"ñÈ63WèvÎ=zàóÁë× ÷â¿FÉªsá¥iJ£ŠwİN*{t³ºìïuÔù<LTfš»æşiÛ~·wïëÛØõã_BE<Ş¼çë:ş½ 429ş,÷Ïl€Aëœuçœö¤Âğ2:®9ïÓsôç­zç8¸=3Û×¿Ùÿ _r)pIëĞ3œŒœöãÓØô¦àsÈè?§'œc¦=sê3K“ÈûÃ×®O\§ŸQÖ€ ]Ş½ûcƒœ~=:õÎL¹ü3ß=3Œ{töéÑ ^¹ıqŒzg=98úQ£¦;ãï}sŒñŸÇê ¸8ûİqß{r;ö<g¨£wïëÛØõã_BE!G8ëŸCÏ_N€ı)Hÿ {ç¶@ õÎ:óÎ{PƒÀİëÎ~¸ã¯ëØúFq»ùçŒñüş¾äRax×÷é¹úsÖ—={™¶§¦=sê(@>¤rzãÔûwíÇæ1F:;ôéœu÷–y ïÔô'Ôû÷şyÆi01øtÏ:z}OLsŠ R©ëíëô=;öú(Áã“ş½ñøçß4=úúœuúGç¹48ç¯ tü1ŒvÆh ÁÏSú{z¾ŸÈŒäÁÏSú{ûc#¿_§Lïø“ê8=ÿ <ãQı»œ÷ã¯nØç¯'š 0yäşƒ·Lœr }HäõÇ©öïÛÌbŒy?Ÿ=?ç™( {õ=	õ>ıÿ qƒš 0qÔôéß§Lã¯¸ü³ÍS×Û×èzwíôR`cğé:t<ôú˜ç¤~¾§~£‘ùç®M <rÃƒ×¾?ûæŒõ?§· ëéüˆÎBñõã¡äŸ†1ØÍïø“ê8=ÿ <ãPƒ§ô÷öÆG~¿N˜0yäşƒ·Lœr`g¿nç=øëÛ¶9ëÉæŒy?Ÿ=?ç™(  ú‘ÉëSíß·˜Å8êztïÓ¦q×Ü~Yæ€¿SĞŸSïßùç9¤ÀÇáÓ<tèyéõ=1Î(H>§¯·¯ĞôïÛè8£Oøpz÷ÇãŸ|Ğ@÷ëêq×ê9zäĞ@ã>¼t<ÓğÆ1Û =Oéíè:ú"3“=OéïíŒı~0`g¿âO¨àd÷üóŒqF{öîsß½»c¼h Áç“úzİ1şr9Èõ#“×§Û¿n?1Š09äş|ôÿ :dt ïÔô'Ôû÷şyÆh ÁÇSÓ§~3¾ãòÏ4}O_o_¡éß·ĞqIÃ¦xéĞóÓêzcœR=úúœuúGç¹4 `ñÉÿ ^øüsïš0sÔşŞƒ¯§ò#9sÇ×‡:~Æ;c4`g¿âO¨àd÷üóŒq@zŸÓßÛúı:`Áç“úzİ1şr9Éı»œ÷ã¯nØç¯'š09äş|ôÿ :dt  êG'®=O·~Ü~c`ã©éÓ¿N™Ç_qùgš ıOB}O¿çœ`æ“‡LñÓ¡ç§ÔôÇ8  ú¾Ş¿CÓ¿o âŒ9?áÁëß}óAß¯©Ç_¨ä~yë“AxúñĞòOÃÇlf€õ?§· ëéüˆÎLõ?§¿¶2;õútÁÿ ‰>£“ßóÎ0AÅïÛ¹Ï~:öízòy sÁà}ÚÎxéƒÆ}ıòŸ/óÇcè=íÁã×Ú”H8#Ó;ç *LCÓ·L`g¿Lcéõ åÉëÉô9ëÛ¸9ã·Lc½ Û|ŒwÇò#¨<{Å.FO¯=ëßœs×óÇg‡?†7cƒì~œúäĞ 6ãLäzÇëß>ç¿/lc99 û~_OZ„tÏqÃvÇ¾z\Ôdu }:œò_Z ù‡â¯ªünø{£Aaq¦_¬ Ñ\Y_UšB@Ü¢H µÎâ«û¥#“_¿<[aão‹?õY,âñdÚÌñğ¾aáË¶Şw¤âËä–D]÷°˜„ò~íÕµ(ãı¢5İZA˜|#á½SU‘ä G6‡xÜÑ°‰º±%È`î\0Eühø'ªŞj?¼®j4÷Ş$ÑlµıBy#ûV¡©Áì÷0¢áY$–i¤–HÂGpÒGr7	Á=‹zW’_2§ÏØÓ…=úİ·¶Í5©Ñ»Ãş½¦ü½æí÷¹¥j‘éú²ÜFeŠ8g""ßxKD wêÅ·`‘€F8Ïägí“àM[ã»£Û|3»Òü[­ü>³M]ğ–¬èş F¸ºÔõ«İBÓD¹Ô-¯õuµMCH´[®ï$¼¹tHœÇú½¨eq€Mõ•ÄRrWå2©
+
+===ClamAv Check List===
+/home/veneziaonlinecom/public_html/src/node_modules/gulp-phpunit/node_modules/node-notifier/vendor/terminal-notifier.app/Contents/Resources/en.lproj/Credits.rtf: SecuriteInfo.com.FakeRTF-2.UNOFFICIAL FOUND
+/home/veneziaonlinecom/public_html/src/node_modules/node-notifier/vendor/terminal-notifier.app/Contents/Resources/en.lproj/Credits.rtf: SecuriteInfo.com.FakeRTF-2.UNOFFICIAL FOUND
+
+----------- SCAN SUMMARY -----------
+Known viruses: 6412981
+Engine version: 0.99.2
+Scanned directories: 5205
+Scanned files: 30480
+Infected files: 2
+Data scanned: 218.57 MB
+Data read: 343.07 MB (ratio 0.64:1)
+Time: 789.167 sec (13 m 9 s)
+===Maldet Check List===
+{CAV}SecuriteInfo.com.FakeRTF-2 : /home/veneziaonlinecom/public_html/src/node_modules/gulp-phpunit/node_modules/node-notifier/vendor/terminal-notifier.app/Contents/Resources/en.lproj/Credits.rtf
+{CAV}SecuriteInfo.com.FakeRTF-2 : /home/veneziaonlinecom/public_html/src/node_modules/node-notifier/vendor/terminal-notifier.app/Contents/Resources/en.lproj/Credits.rtf
+===Image Check List===
+./src/vendor/dompdf/dompdf/www/test/images/bmp/trans.bmp: data
+./src/vendor/dompdf/dompdf/www/test/images/bmp/test24.bmp: PC bitmap, Windows 3.x format, 127 x 64 x 24
+./src/vendor/dompdf/dompdf/www/test/images/bmp/test8.bmp: PC bitmap, Windows 3.x format, 127 x 64 x 8
+./src/vendor/dompdf/dompdf/www/test/images/bmp/test16bf565.bmp: PC bitmap, Windows 3.x format, 127 x 64 x 16
+./src/vendor/dompdf/dompdf/www/test/images/bmp/test16.bmp: PC bitmap, Windows 3.x format, 127 x 64 x 16
+./src/vendor/dompdf/dompdf/www/test/images/bmp/test16bf555.bmp: PC bitmap, Windows 3.x format, 127 x 64 x 16
+./src/vendor/dompdf/dompdf/www/test/images/bmp/test32.bmp: PC bitmap, Windows 3.x format, 127 x 64 x 32
+./src/vendor/dompdf/dompdf/www/test/images/bmp/testcompress8.bmp: PC bitmap, Windows 3.x format, 127 x 64 x 8
+./src/vendor/dompdf/dompdf/www/test/images/bmp/test32bf.bmp: PC bitmap, Windows 3.x format, 127 x 64 x 32
+./src/vendor/dompdf/dompdf/www/test/images/bmp/test32bfv4.bmp: data
+./src/vendor/dompdf/dompdf/www/test/images/bmp/test8os2.bmp: PC bitmap, OS/2 1.x format, 127 x 64
+./src/vendor/dompdf/dompdf/www/test/images/bmp/test32v5.bmp: data
+./src/vendor/dompdf/dompdf/www/test/images/bmp/test4os2v2.bmp: PC bitmap, OS/2 2.x format, 300 x 0
+./src/vendor/dompdf/dompdf/www/test/images/bmp/testcompress4.bmp: PC bitmap, Windows 3.x format, 127 x 64 x 4
+./src/vendor/dompdf/dompdf/www/test/images/bmp/test1.bmp: PC bitmap, Windows 3.x format, 127 x 64 x 1
+./src/vendor/dompdf/dompdf/www/test/images/bmp/test4.bmp: PC bitmap, Windows 3.x format, 127 x 64 x 4

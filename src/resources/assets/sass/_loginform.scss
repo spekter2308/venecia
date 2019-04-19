@@ -1,0 +1,94 @@
+.loginform {
+  background-color: $main_dark;
+  main {
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    form {
+      background-color: #ddd;
+      max-width: 400px;
+      margin: 30px;
+      padding: 30px;
+      @media screen and (max-width: $screen-sm) {
+        padding: 20px;
+      }
+      input {
+        width: calc(100% - 40px);
+        border-radius: 0;
+        padding: 5px 20px;
+        border: 1px solid #ddd;
+        line-height: 40px;
+        height: 40px;
+        margin: 5px 0;
+        font-size: 1rem;
+        @media screen and (max-width: $screen-sm) {
+          height: 30px;
+          line-height: 30px;
+        }
+        &.fail {
+          border: 1px solid $main_red;
+          background-color: lighten($main_red, 30%);
+        }
+        &.submit {
+          width: 100%;
+          background-color: $main_red;
+          border: 1px solid $main_red;
+          text-transform: uppercase;
+          height: 50px;
+          line-height: 50px;
+          padding: 0;
+          color: #fff;
+          &:hover {
+            background-color: lighten($main_red, 5%);
+          }
+        }
+        &:focus {
+          border: 1px solid $main_red;
+        }
+      }
+      .checkbox {
+        margin: 5px 0;
+        position: relative;
+        input[type=checkbox] {
+          display: none;
+          & + label {
+            display: block;
+            height: 30px;
+            line-height: 30px;
+            padding-left: 35px;
+            cursor: pointer;
+            position: relative;
+            color: #898989;
+            &:before {
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 25px;
+              width: 25px;
+              border: 1px solid #ddd;
+              background-color: #fff;
+              content: '';
+            }
+          }
+          &:checked + label {
+            &:before {
+              background-image: url("../../img/h3svg/check_gray.svg");
+              background-size: 25px;
+            }
+          }
+        }
+      }
+    }
+    .forgot {
+      color: #8b8b8b !important;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

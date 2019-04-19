@@ -1,0 +1,40 @@
+.promo {
+  margin: 30px auto;
+  padding: 0 20px;
+  height: 400px;
+  width: calc(100% - 40px);
+  background-image: url("../../img/h3landing__item.jpg");
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  & > * {
+    z-index: 10;
+    color: #fff;
+  }
+  &:after {
+    content: "";
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    height: 400px;
+    opacity: .99;
+  }
+  h2 {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  p {
+    margin-top: 5px;
+    color: darken(#fff, 10%);
+  }
+}

@@ -1,0 +1,8 @@
+/** Review page **/
+.edit-review, .reviews-list {
+  margin: 15px 0; }
+
+.edit-review, .excel-error {
+  display: none; }
+
+/*# sourceMappingURL=custom_admin.css.map */

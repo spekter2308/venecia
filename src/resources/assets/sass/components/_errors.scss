@@ -1,0 +1,30 @@
+.error__msg {
+  position: fixed;
+  z-index: 1000;
+  background-color: #e8e8e8;
+  width: 200px;
+  padding: 5px;
+  right: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  display: none;
+  h2 {
+    margin: 0;
+    text-align: center;
+    color: $main_red;
+    font-size: 1.2rem;
+  }
+  img {
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    margin: 0;
+    padding: 0;
+  }
+  p {
+    margin: 5px 0;
+    font-size: .8rem;
+  }
+}

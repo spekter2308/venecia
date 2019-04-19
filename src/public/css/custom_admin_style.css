@@ -1,0 +1,24 @@
+/** Review page **/
+.edit-review, .reviews-list {
+  margin: 15px 0; }
+
+.edit-review, .excel-error {
+  display: none; }
+
+.collection .collection-item b.add {
+  color: #2BBBAD; }
+
+.collection .collection-item .secondary-content {
+  float: left; }
+
+.collection .collection-item a.add-sub-cat {
+  float: right; }
+
+.collection-sub-item {
+  border-left: 200px solid #2BBBAD;
+  background-color: #fff;
+  line-height: 1.5rem;
+  padding: 10px 20px;
+  margin: 0;
+  border-bottom: 1px solid #e0e0e0;
+  padding-left: 30px; }

@@ -1,0 +1,27 @@
+body {
+  background: red;
+}
+.grid-stack-custom{
+  border: 3px solid #eee;
+  padding: 20px;
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
+}
+
+.response_img{
+  width: 100%;
+
+}
+
+.select2-container--default .select2-selection--multiple{
+  height: 45px;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple{
+  border: solid #ccc 1px;
+  height: 45px;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice{
+  padding: 5px;
+}

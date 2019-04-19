@@ -1,0 +1,90 @@
+//
+//  AppColorScheme.swift
+//  Tuyap
+//
+//  Created by Dmytro Babych on 7/7/16.
+//  Copyright © 2016 Dmytro Babych. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+
+class AppColorScheme : NSObject {
+    
+    
+    var colorFirst : UIColor
+    var colorSecond : UIColor
+    
+    var colorFirstDark : UIColor
+    var colorFirstFrame : UIColor
+    var colorSecondFrame : UIColor
+
+    var colorLinkedIn : UIColor = UIColor(red: 0.0 / 255.0, green: 100.0 / 255.0, blue: 155.0 / 255.0, alpha: 1.0)
+    var colorTwitter : UIColor = UIColor(red: 0.0 / 255.0, green: 171.0 / 255.0, blue: 241.0 / 255.0, alpha: 1.0)
+    var colorFacebook : UIColor = UIColor(red: 55.0 / 255.0, green: 88.0 / 255.0, blue: 159.0 / 255.0, alpha: 1.0)
+
+    init(rgb1 red1: CGFloat, _ green1: CGFloat, _ blue1: CGFloat, rgb2 red2: CGFloat, _ green2: CGFloat, _ blue2: CGFloat) {
+        self.colorFirst = UIColor(red: red1 / 255.0, green: green1 / 255.0, blue: blue1 / 255.0, alpha: 1.0)
+        self.colorSecond = UIColor(red: red2 / 255.0, green: green2 / 255.0, blue: blue2 / 255.0, alpha: 1.0)
+        self.colorFirstDark = UIColor(red: 0.47 * red1 / 255.0, green: 0.642 * green1 / 255.0, blue: 0.728 * blue1 / 255.0, alpha: 1.0)
+        self.colorFirstFrame = UIColor(red: 0.49 * red1 / 255.0, green: 0.667 * green1 / 255.0, blue: 0.768 * blue1 / 255.0, alpha: 1.0)
+        self.colorSecondFrame = UIColor(red: 1.120 * red2 / 255.0, green: 1.134 * green2 / 255.0, blue: 1.152 * blue2 / 255.0, alpha: 1.0)
+    }
+    
+    
+    class func schemeGreen() -> AppColorScheme {
+        return AppColorScheme(rgb1: 51, 162, 125, rgb2: 0, 82, 128)
+    }
+    
+    
+    class func schemeBlue() -> AppColorScheme {
+        return AppColorScheme(rgb1: 35, 159, 216, rgb2: 16, 56, 94)
+    }
+    
+    
+    class func schemeRed() -> AppColorScheme {
+        return AppColorScheme(rgb1: 255, 86, 101, rgb2: 139, 0, 21)
+    }
+    
+    
+    class func schemeOrange() -> AppColorScheme {
+        return AppColorScheme(rgb1: 246, 96, 11, rgb2: 249, 212, 35)
+    }
+    
+    
+    class func schemeGrey() -> AppColorScheme {
+        return AppColorScheme(rgb1: 186, 186, 186, rgb2: 63, 66, 66)
+    }
+    
+    
+    class func schemePurple() -> AppColorScheme {
+        return AppColorScheme(rgb1: 156, 51, 162, rgb2: 255, 78, 34)
+    }
+    
+    
+    class func schemeDarkBlue() -> AppColorScheme {
+        return AppColorScheme(rgb1: 1, 82, 161, rgb2: 0, 21, 42)
+    }
+    
+    
+    class func schemeByCode(_ code: String) -> AppColorScheme {
+        if code == "Blue" {
+            return self.schemeBlue()
+        } else if code == "Red" {
+            return self.schemeRed()
+        } else if code == "Orange" {
+            return self.schemeOrange()
+        } else if code == "Grey" {
+            return self.schemeGrey()
+        } else if code == "Purple" {
+            return self.schemePurple()
+        } else if code == "DarkBlue" {
+            return self.schemeDarkBlue()
+        } else {
+            return self.schemeGreen()
+        }
+    }
+    
+    
+}

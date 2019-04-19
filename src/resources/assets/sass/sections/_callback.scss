@@ -1,0 +1,107 @@
+.callback {
+  top: 250px;
+  position: fixed;
+  right: 0;
+  z-index: 580;
+  display: flex;
+  //width: 100%;
+  @media screen and (max-width: 480px) {
+    top: 0;
+    max-width: 100%;
+  }
+
+  .callback_ico_ua {
+    width: 22px;
+    height: 122px;
+    background: url(../../css/img/feedback_ico.png) no-repeat left top;
+    cursor: pointer;
+    position: relative;
+    top: -5px;
+    flex-shrink: 0;
+    //float: left;
+
+
+  }
+  .callback_ico_ru{
+    background: url(../../css/img/feedback_ico_ru.png) no-repeat left top;
+    width: 22px;
+    height: 122px;
+    cursor: pointer;
+    position: relative;
+    top: -5px;
+    flex-shrink: 0;
+    //float: left;
+  }
+
+  .callback_content {
+    display: none;
+    width: 321px;
+    padding: 0 30px !important;
+    height: 337px;
+    background: #fff;
+    -moz-box-shadow: 0 0 5px #444;
+    -webkit-box-shadow: 0 0 5px #444;
+    box-shadow: 0 0 10px #444;
+    //float: left;
+
+    @media screen and (max-width: 480px) {
+      flex-grow: 1;
+    }
+    .title {
+      font-size: 14px;
+      color: #565656;
+      line-height: 26px;
+      border-bottom: 1px solid #cccccc;
+      text-align: center;
+    }
+    .close {
+      padding: 3px;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    input[type=text] {
+      border-radius: 0;
+      border: 1px solid #cccccc;
+      margin-bottom: 12px;
+      width: 100%;
+      color: #666666;
+      font-size: 11px;
+      padding: 2px;
+    }
+    textarea {
+      border: 1px solid #cccccc;
+      margin-bottom: 5px;
+      width: 100%;
+      color: #666666;
+      font-size: 11px;
+      padding: 2px;
+      height: 95px;
+    }
+    label {
+      font-size: 13px;
+      color: #565656;
+      padding-left: 3px;
+      font-weight: bold;
+    }
+    input[type=button] {
+      float: right;
+      font-size: 12px;
+      color: #ffffff;
+      background: #666666;
+      padding: 5px 10px;
+      cursor: pointer;
+
+    }
+  }
+}
+.przycmienie {
+  background: url(../../css/img/pop_bg.png);
+  z-index: 350;
+  height: 100%;
+  width: 100%;
+  background-repeat: repeat;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
