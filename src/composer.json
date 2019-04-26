@@ -18,7 +18,8 @@
         "orchestra/parser": "~3.0",
         "anahkiasen/underscore-php": "^2.0",
         "mews/captcha": "^2.2",
-        "yajra/laravel-datatables-oracle": "~6.0"
+        "yajra/laravel-datatables-oracle": "~6.0",
+        "barryvdh/laravel-debugbar": "~2.4"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

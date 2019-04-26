@@ -21,7 +21,7 @@
     <!-- Include app.scss file -->
     <link rel="stylesheet" href="{{ asset('src/public/sass/app.scss') }}">
     <!-- Include _admin.scss file -->
-    <link rel="stylesheet" href="/src/public{{ elixir('css/custom_admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('src/public/css/custom_admin_style.css') }}">
     <!-- Include sweet alert file -->
     <link rel="stylesheet" href="{{ asset('src/public/css/sweetalert.css') }}">
     <!-- Include lity light-tbox file -->

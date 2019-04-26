@@ -77,7 +77,7 @@
     <link rel="stylesheet" href="{{ asset('src/public/css/lity.css') }}">
     <link rel="stylesheet" href="{{ asset('src/public/css/normalize.css') }}">
     <link rel="stylesheet" href="{{ asset('src/public/css/flexboxgrid.min.css') }}">
-    <link rel="stylesheet" href="/src/public{{ elixir('css/custom.css') }}">
+    <link rel="stylesheet" href="{{ asset('src/public/css/custom_style.css') }}">
     {{--        <link rel="stylesheet" href="{{ asset('src/public/css/style.css') }}">--}}
 {{--    <link rel="stylesheet" href="{{ asset('src/public/css/animate.css') }}">--}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css" />

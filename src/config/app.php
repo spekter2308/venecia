@@ -163,6 +163,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         //Snowfire\Beautymail\BeautymailServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 

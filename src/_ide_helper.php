@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.2.45 on 2018-06-01 07:31:29.
+ * Generated for Laravel 5.2.45 on 2019-04-26 09:06:49.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -1772,6 +1772,18 @@ namespace Illuminate\Support\Facades {
         /**
          * Determine if the current user is authenticated.
          *
+         * @return \App\User 
+         * @throws \Illuminate\Auth\AuthenticationException
+         * @static 
+         */ 
+        public static function authenticate()
+        {
+            return \Illuminate\Auth\SessionGuard::authenticate();
+        }
+        
+        /**
+         * Determine if the current user is authenticated.
+         *
          * @return bool 
          * @static 
          */ 
@@ -1789,18 +1801,6 @@ namespace Illuminate\Support\Facades {
         public static function guest()
         {
             return \Illuminate\Auth\SessionGuard::guest();
-        }
-        
-        /**
-         * Determine if the current user is authenticated.
-         *
-         * @return \App\User 
-         * @throws \Illuminate\Auth\AuthenticationException
-         * @static 
-         */ 
-        public static function authenticate()
-        {
-            return \Illuminate\Auth\SessionGuard::authenticate();
         }
          
     }
