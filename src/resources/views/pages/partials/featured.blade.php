@@ -25,9 +25,9 @@
                                 @endif
                             @endif
                             @if($product->reduced_price == 0)
-                                <span>{{ $product->price }}₴</span>
+                                <span>{{ $product->price }}грн</span>
                             @else
-                                <span>{{ $product->reduced_price }}₴</span>
+                                <span>{{ $product->reduced_price }}грн</span>
                             @endif
                         </div>
                    <span>{{  Lang::locale()=='ua' ? $product->product_name  : $product->product_name_ru }}</span>

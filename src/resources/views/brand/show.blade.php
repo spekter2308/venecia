@@ -68,10 +68,10 @@
 
                                     <p>
                                         @if($product->reduced_price != 0)
-                                            <span>  {{$product->price}} ₴</span>
-                                            {{  $product->reduced_price }} ₴</p>
+                                            <span>  {{$product->price}} грн</span>
+                                            {{  $product->reduced_price }} грн</p>
                                     @else
-                                        {{$product->price}} ₴</p>
+                                        {{$product->price}} грн</p>
                                     @endif
                                 </div>
                             </div>

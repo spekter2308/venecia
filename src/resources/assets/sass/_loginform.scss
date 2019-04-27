@@ -77,7 +77,7 @@
           }
           &:checked + label {
             &:before {
-              background-image: url("../../img/h3svg/check_gray.svg");
+              background-image: url("../img/svg/check_gray.svg") !important;
               background-size: 25px;
             }
           }

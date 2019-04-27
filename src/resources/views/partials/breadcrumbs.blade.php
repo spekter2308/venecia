@@ -1,4 +1,4 @@
-<ul class="breadcrumb">
+<ul class="breadcrumb" style="margin-left: 260px;">
     @foreach($breadcrumbs as $key => $breadcrumb)
         <li itemscope itemtype = "http://data-vocabulary.org/Breadcrumb" >
             @if(!(count($breadcrumbs) == $key + 1))

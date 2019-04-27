@@ -61,10 +61,10 @@
 
                                 <p>
                                     @if($product->reduced_price != 0)
-                                        <span>  {{$product->price}} ₴</span>
-                                        {{  $product->reduced_price }} ₴</p>
+                                        <span>  {{$product->price}} грн</span>
+                                        {{  $product->reduced_price }} грн</p>
                                 @else
-                                    {{$product->price}} ₴</p>
+                                    {{$product->price}} грн</p>
                                 @endif
                                 <a href="#" class="delete_button" data-id="{{$product->id}}">{{trans('messages.deleteFavorites')}}</a>
                             </div>

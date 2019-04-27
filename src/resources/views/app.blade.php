@@ -318,7 +318,7 @@
             to: {{ (isset($range_price[1])) ? $range_price[1] : 5000}},
             type: 'double',
             step: 1,
-            prefix: "₴",
+            prefix: "грн",
             grid: true
         });
     });

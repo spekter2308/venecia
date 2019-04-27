@@ -53,11 +53,11 @@
                                     @if($cart_item->products->reduced_price!=0)
                                     <span class="price" id="price_{{$key}}"
                                           data-price="{{$cart_item->products->reduced_price}}"> {{$cart_item->products->reduced_price}}
-                                        ₴</span>
+                                        грн</span>
                                     @else
                                         <span class="price" id="price_{{$key}}"
                                               data-price="{{$cart_item->products->price}}"> {{$cart_item->products->price}}
-                                            ₴</span>
+                                            грн</span>
                                     @endif
                                     <span class="size">{{$cart_item->size}}</span>
                                         <div class="color" style="background-color: {{$cart_item->color}}"></div>
@@ -101,10 +101,10 @@
 
                             @if($cart_item->products->reduced_price!=0)
                                 TOTAL: <span id="total_{{$key}}" data-price="{{$cart_item->products->reduced_price}}">{{$cart_item->products->reduced_price}}
-                                    ₴</span>
+                                    грн</span>
                             @else
                                 TOTAL: <span id="total_{{$key}}" data-price="{{$cart_item->products->price}}">{{$cart_item->products->price}}
-                                    ₴</span>
+                                    грн</span>
                             @endif
 
                         </div>
@@ -232,7 +232,7 @@
     $('.qty').change(function () {
         let id = $(this).data('number');
         let total = parseInt($('#price_' + id).data('price')) * $(this).val();
-        $('#total_' + id).html(total + '₴');
+        $('#total_' + id).html(total + 'грн');
         calc_summ();
     });
 
@@ -240,7 +240,7 @@
         $('input').each(function () {
             let id = $(this).data('number');
             let total = parseInt($('#price_' + id).data('price')) * $(this).val();
-            $('#total_' + id).html(total + '₴').data('price', total);
+            $('#total_' + id).html(total + 'грн').data('price', total);
         });
     }
     function calc_summ() {
@@ -248,7 +248,7 @@
         $('.total__price').each(function () {
             summ = summ + parseInt($(this).find('span').data('price'));
         });
-        $('#submit').html('Оформити замовлення (' + summ + '₴)');
+        $('#submit').html('Оформити замовлення (' + summ + 'грн)');
         return summ;
     }
     function getQTYs() {

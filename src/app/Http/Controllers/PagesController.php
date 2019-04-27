@@ -395,7 +395,7 @@ class PagesController extends Controller {
 //                        $query->where('created_at', '>', Carbon::now()->subSeconds($shop_settings->time_new));
 //                    }
 //                })
-                ->orderBy( $orber_by['order'] , $orber_by['direction'] )
+                ->orderBy( $orber_by['order'] , $orber_by['direction'] )->orderBy('product_name', 'DESC')
                 ->where('active', '1')
                 ->paginate($items_per_page);
 
@@ -415,7 +415,6 @@ class PagesController extends Controller {
             ->has('product_information')
             ->where('active', '1')
             ->get();
-
 
         $breadcrumbs = [
             (object) ['page' => trans('messages.mainPage'), "link" => url('/')]

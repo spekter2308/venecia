@@ -26,10 +26,10 @@
                 @endif
 
                 <div class="checkbox">
-                    <input type="checkbox" name="remember" id="remember"/>
+                    <input type="checkbox" name="remember" id="remember">
                     <label for="remember">{{trans('messages.rememberMe')}}</label>
                 </div>
-                <input type="submit" value="{{trans('messages.enter')}}" class="submit"/>
+                <input type="submit" value="{{trans('messages.enter')}}" class="submit">
             </form>
             <a href="{{ url('/register') }}" class="forgot">{{trans('messages.registration')}}</a>
             <a href="{{ url('password/email') }}" class="forgot">{{trans('messages.forgetPassword')}}</a>

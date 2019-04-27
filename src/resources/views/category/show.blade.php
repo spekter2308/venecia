@@ -88,7 +88,11 @@ $get_params['showAll'] = 'showAll';
 
                                     </div>
                                     <div class="item__description">
-                                        <span> {{App::getLocale() == 'ua' ? $product->product_name  : $product->product_name_ru}} Venezia {{$product->product_sku }} </span>
+                                        <p style="font-size: 14px; color: #777777;"> {{App::getLocale() == 'ua' ?
+                                        $product->product_name  :
+                                        $product->product_name_ru}} Venezia <span style="display: inline;
+                                        font-size: 13px;">{{$product->product_sku
+                                        }}</span></p>
                                     </div>
                                     <div class="related-products">
                                         {{--<p><strong>{{  trans("messages.available_colors") }}:</strong></p>--}}
@@ -108,9 +112,10 @@ $get_params['showAll'] = 'showAll';
                                 </a>
                                 <div class="item__description">
                                     @if($product->reduced_price != 0)
-                                        <div><span>{{$product->price}}₴</span>{{ $product->reduced_price }}₴</div>
+                                        <div><span>{{$product->price}}грн</span>{{ $product->reduced_price }}грн</div>
                                     @else
-                                        {{$product->price}} ₴
+                                        <span style="display: inline; font-size: 18px; color: #666666;
+">{{$product->price}}</span> грн
                                     @endif
                                 </div>
                             </div>

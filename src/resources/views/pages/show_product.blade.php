@@ -125,7 +125,11 @@
                     <div class="product__info">
                         <div class="img__preview">
                             <div class="product-title">
-                                <h1>{{  Lang::locale()=='ua' ? $product->product_name  : $product->product_name_ru}} арт : {{$product->product_sku}}</h1>
+                                <h1 style="font-weight: normal; font-size: 20px; color: #666666; margin-left: 5px;">{{
+                                 Lang::locale()
+                                =='ua' ?
+                                $product->product_name  :
+                                $product->product_name_ru}} арт : {{$product->product_sku}}</h1>
                             </div>
 
 
@@ -243,9 +247,12 @@
                                     {{--<h3>арт : {{$product->product_sku}}</h3>--}}
                                     <div>
                                         @if($product->reduced_price != 0)
-                                            <div><span> {{$product->price}} ₴</span><br>{{ $product->reduced_price }} ₴</div>
+                                            <div><span style="text-decoration: line-through;"> {{$product->price}}
+                                                    грн</span><br>{{
+                                            $product->reduced_price
+                                            }} грн</div>
                                         @else
-                                            <span>{{$product->price}} </span> ₴
+                                            <span>{{$product->price}} </span> грн
                                         @endif
                                     </div>
                                     <div class="related-products">
@@ -342,14 +349,17 @@
                             @else
                                 <div>
                                     <div class="price">
-                                        <div><span> {{$product->price}} ₴</span></div>
+                                        <div><span> {{$product->price}} грн</span></div>
                                     </div>
                                     <b style="color: #dd5656;">{{ trans('messages.product_is_sold') }}</b>
                                 </div>
                             @endif
-                            <div class="attributes">
+                            <div class="attributes" style="margin-top: 20px;">
                                 <a onclick="ShowPopupMessage()" class="size-table-link">
-                                    <span>{{trans('messages.size_table')}}</span>
+                                    <span style="text-decoration: none; text-transform: uppercase; color: #333333;
+                                    font-size: 22px">
+                                        {{trans('messages.size_table')}}
+                                    </span>
                                 </a>
                             </div>
 
@@ -437,9 +447,9 @@
                                                             @endif
                                                         @endif
                                                         @if($seen_product->reduced_price == 0)
-                                                            <span>{{ $seen_product->price }}₴</span>
+                                                            <span>{{ $seen_product->price }}грн</span>
                                                         @else
-                                                            <span>{{ $seen_product->reduced_price }}₴</span>
+                                                            <span>{{ $seen_product->reduced_price }}грн</span>
                                                         @endif
                                                     </div>
                                                     <span>{{  Lang::locale()=='ua' ? $seen_product->product_name  : $seen_product->product_name_ru }}</span>
@@ -519,10 +529,10 @@
                 $('#shoes_size_popup').append(response)
 
                 $('#shoes_size_popup').show(100);
-                $('#womn-inf').hide();
-                $('#man-inf').show();
-                $('#info-man').addClass('active');
-                $('#info-woman').removeClass('active')
+                $('#womn-inf').show();
+                $('#man-inf').hide();
+                $('#info-man').removeClass('active');
+                $('#info-woman').addClass('active')
             });
         }
 
