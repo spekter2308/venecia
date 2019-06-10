@@ -13,7 +13,7 @@
   .callback_ico_ua {
     width: 22px;
     height: 122px;
-    background: url(../../css/img/feedback_ico.png) no-repeat left top;
+    background: url(/src/public/css/img/feedback_ico.png) no-repeat left top;
     cursor: pointer;
     position: relative;
     top: -5px;
@@ -96,7 +96,7 @@
   }
 }
 .przycmienie {
-  background: url(../../css/img/pop_bg.png);
+  background: url(/src/public/css/img/pop_bg.png);
   z-index: 350;
   height: 100%;
   width: 100%;

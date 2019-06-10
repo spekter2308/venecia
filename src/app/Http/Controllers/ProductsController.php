@@ -541,6 +541,8 @@ class ProductsController extends Controller {
 
         $product = Product::with('product_information','product_material','category')->where('slug',$slug)->where('active' , 1)->first();
 
+        //return $product;
+
         //dd($product->product_information[0]);
 
         if(!$product){

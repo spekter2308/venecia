@@ -134,12 +134,13 @@ $get_params['showAll'] = 'showAll';
                         <a href="{{ route('category.showAll', [$categoryId, $categories[0]->slug]) . '?' . http_build_query($get_params) }}" class="btn btn-primary-outline">{{trans('messages.showAll')}}</a>
                     </form>
                 @endif
-
+    
                 <div class="row paginator" style="margin-top: 30px;">
-                    @if(!isset($bag))
+                    @if(isset($showAllButton))
                         <div class="pagination-wrapper">
-                            {{--Pagination--}}
-                            {!! $products->links() !!}
+                            
+                            {!! $products->appends($getFilters)->links() !!}
+                            
                         </div>
                     @endif
                 </div>
@@ -158,6 +159,8 @@ $get_params['showAll'] = 'showAll';
             @include('partials.filterSectionCategory')
         </div>
     </section>
+
+    
 
 
     <script  src="{{ asset('src/public/js/libs/jquery.js') }}"></script>

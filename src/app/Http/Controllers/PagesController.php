@@ -24,6 +24,7 @@ use App\Http\Traits\CategoryTrait;
 use App\Http\Traits\SearchTrait;
 use App\Http\Traits\CartTrait;
 use Illuminate\Support\Facades\URL;
+use mysql_xdevapi\Collection;
 use Session;
 
 
@@ -88,6 +89,9 @@ class PagesController extends Controller {
         $mainSeo =  DB::table('seo')->where('page','main')->first();
 
         $metaTags = $this->metaTags($mainSeo);
+
+        //return array_map(function ($category) { return $category->category == "Чоловіче взуття" ? array_map(function ($child) { return $child->products ? $child->products : null;}, iterator_to_array($category->children)) : null;}, iterator_to_array($categories));
+
 
         return view('pages.index', compact('mainSeo','categoryId','products', 'brands', 'search', 'new', 'rand_brands','mainPageImages', 'mainPageImagesStatic','discount','categoryAll','metaTags'))->with('categories', $categories);
     }
@@ -156,6 +160,13 @@ class PagesController extends Controller {
         // ( Enables capabilities search to be preformed on this view )
         $search = $this->search();
 
+        //dd(parse_url(url()->previous(), PHP_URL_PATH));
+
+        $getFilters = [];
+        foreach ($request->query as $key => $filter) {
+            $getFilters[$key] = $filter;
+        }
+
         if (parse_url(url()->previous(), PHP_URL_PATH) !== "/" . $request->path()) {
             Session::forget('sort');
         }
@@ -168,7 +179,7 @@ class PagesController extends Controller {
 
         Session::put('sort', $sort);
 
-        //dd ( parse_url( url()->previous(), PHP_URL_PATH),$request->path());
+        //dd(parse_url( url()->previous(), PHP_URL_PATH), $request->path());
 
         switch ($sort) {
             case "newest":
@@ -201,74 +212,28 @@ class PagesController extends Controller {
 
         $showAll = Input::get('showAll');
 
-
-//        dd (Product::with(['category'])
-//            ->select(DB ::raw('id','DISTINCT(id)'))
-//            ->whereHas('category',function ($query) use ($cat_id){
-//                $query->whereIn('id',$cat_id);
-//            })
-//            ->where(function ($query) use ($shop_settings, $sort){
-//                if ($sort == "newest") {
-//                    $query->where('created_at', '>', Carbon::now()->subSeconds($shop_settings->time_new));
-//                }
-//            })
-//            ->where('active', '1')
-//            ->orderBy( $orber_by['order'] , $orber_by['direction'] )
-//            ->get()
-//            ->pluck('id')
-//        );
-
-        //        $model = FilterValue::has('product')->groupBy('name_id')->get();
-//        $model = FilterType::whereHas('filter_values', function ($query) use ($cat_id) {
-//
-//            $query->whereHas('product', function ($query) use ($cat_id) {
-//
-//                $query->whereHas('category', function ($query) use ($cat_id) {
-//                    $query->whereIn('id', $cat_id);
-//                });
-//
-//            })
-//                ->groupBy('name_id');
-//        })
-//            ->with('filter_names')
-//            ->get();
-
         $filter_types = FilterType::whereHas('filter_names', function ($query) use ($cat_id) {
 
-
             $query->whereHas('filter_values', function ($query) use ($cat_id) {
-
                 $query->whereHas('product', function ($query) use ($cat_id) {
-
                     $query->whereHas('category', function ($query) use ($cat_id) {
                         $query->whereIn('id', $cat_id);
                     });
-
                 })
                     ->groupBy('name_id');
             });
         })
             ->with(array('filter_names' => function ($query) use ($cat_id) {
-
-
                 $query->whereHas('filter_values', function ($query) use ($cat_id) {
-
                     $query->whereHas('product', function ($query) use ($cat_id) {
-
                         $query->whereHas('category', function ($query) use ($cat_id) {
                             $query->whereIn('id', $cat_id);
                         });
-
                     })
                         ->groupBy('name_id');
                 });
             }))
             ->get();
-
-//        dd($filter_types->pluck('id'));
-
-//        dd(isset($request->filter));
-
 
         if($showAll != null) {
             $products = Product::with(['category'])
@@ -285,7 +250,6 @@ class PagesController extends Controller {
                         $query
                             ->whereIn('size',$request->size);
                     }
-
                 })
                 ->where(function ($query) use ($request){
                     if (isset($request->filter)) {
@@ -299,56 +263,12 @@ class PagesController extends Controller {
                         $q->whereBetween('price', $range_price)->orWhereBetween('reduced_price', $range_price);
                     }
                 })
-                ->where(function ($query) use ($shop_settings, $sort){
-                    if ($sort == "newest") {
-                        $query->where('created_at', '>', Carbon::now()->subSeconds($shop_settings->time_new));
-                    }
-                })
                 ->where('active', '1')
                 ->orderBy( $orber_by['order'] , $orber_by['direction'] )
-                ->get();
-            $productCount = count($products);
-            $products = Product::with(['category'])
-                ->select(DB ::raw('*','DISTINCT(id)'))
-                ->whereHas('category',function ($query) use ($cat_id){
-                    $query->whereIn('id',$cat_id);
-                })
-                ->whereHas('product_information',function ($query) use ($request){
-                    if (isset($request->color)) {
-                        $query
-                            ->whereIn('color',$request->color);
-                    }
-                    if (isset($request->size)) {
-                        $query
-                            ->whereIn('size',$request->size);
-                    }
-
-                })
-                ->where(function ($query) use ($request){
-                    if (isset($request->filter)) {
-                        $query->whereHas('filters', function ($query) use ($request){
-                            $query->whereIn('name_id',$request->filter);
-                        });
-                    }
-                })
-
-                ->where(function($q) use ($range_price) {
-                    if (isset($range_price)) {
-                        $q->whereBetween('price', $range_price)->orWhereBetween('reduced_price', $range_price);
-                    }
-                })
-//                ->where(function ($query) use ($shop_settings, $sort){
-//                    if ($sort == "newest") {
-//                        $query->where('created_at', '>', Carbon::now()->subSeconds($shop_settings->time_new));
-//                    }
-//                })
-                ->where('active', '1')
-                ->orderBy( $orber_by['order'] , $orber_by['direction'] )
-                ->paginate($productCount);
+                ->get()->sortBy('product_name');
         }else{
-
             $products = Product::with(['category'])
-                ->select(DB ::raw('*','DISTINCT(id)'))
+                ->select(DB::raw('*','DISTINCT(id)'))
                 ->whereHas('category',function ($query) use ($cat_id){
                     $query->whereIn('id',$cat_id);
                 })
@@ -361,22 +281,6 @@ class PagesController extends Controller {
                         $query
                             ->whereIn('size',$request->size);
                     }
-                    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                    /*
-                     *
-                     *
-                     *
-                     *
-                     *
-                     $query
-                            ->whereIn('product_id','id');
-                    *
-                     *
-                     *
-                     *
-                     *
-                     */
-                    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 })
                 ->where(function ($query) use ($request){
                     if (isset($request->filter)) {
@@ -389,23 +293,21 @@ class PagesController extends Controller {
                     if (isset($range_price)) {
                         $q->whereBetween('price', $range_price)->orWhereBetween('reduced_price', $range_price);
                     }
-                })
-//                ->where(function ($query) use ($shop_settings, $sort){
-//                    if ($sort == "newest") {
-//                        $query->where('created_at', '>', Carbon::now()->subSeconds($shop_settings->time_new));
-//                    }
-//                })
-                ->orderBy( $orber_by['order'] , $orber_by['direction'] )->orderBy('product_name', 'DESC')
+                })->orderBy('product_name', 'ASC')
+                ->orderBy( $orber_by['order'] , $orber_by['direction'] )
                 ->where('active', '1')
                 ->paginate($items_per_page);
+
+            //$links = $products->appends($getFilters, ['sortby' => 'product_name', 'order' => 'ASC'])->links();
 
             $showAllButton = true;
 
             if ($products->total() <= $products->count()) {
                 $showAllButton = false;
             }
-
         }
+
+
 
         $products_by_category = Product::with(['category'])
             ->select(DB ::raw('*','DISTINCT(id)'))
@@ -413,7 +315,7 @@ class PagesController extends Controller {
                 $query->whereIn('id',$cat_id);
             })
             ->has('product_information')
-            ->where('active', '1')
+            ->where('active', '1')->orderBy('product_name', 'DESC')
             ->get();
 
         $breadcrumbs = [
@@ -437,7 +339,6 @@ class PagesController extends Controller {
         }else {
             array_push($breadcrumbs,(object) ['page' => $categories_find->$category, "link" => route('category.showAll',[$categories_find->id,$categories_find->slug])]);
         }
-
 
         // Count the products under a certain category
         $count = $products->count();
@@ -510,11 +411,12 @@ class PagesController extends Controller {
 
         //dd($categories[0], $keywords);
 
-
         $canonical = $request->url();
 
 
-        return view('category.show', compact('filter_types', 'canonical','shop_settings','showAllButton','products','categories', 'products_by_category', 'slug','range_price','brands', 'categoryAll', 'search', 'discount','brandsAll','sizes','colors','breadcrumbs', 'title', 'description', 'keywords'))->with('count', $count)->with('categoryId',$id);
+        //dd($request->color);
+
+        return view('category.show', compact('filter_types', 'canonical','shop_settings','showAllButton','products','categories', 'products_by_category', 'slug','range_price','brands', 'categoryAll', 'search', 'discount','brandsAll','sizes','colors','breadcrumbs', 'title', 'description', 'keywords', 'getFilters'))->with('count', $count)->with('categoryId',$id);
     }
 
     /** Display Products by Brand

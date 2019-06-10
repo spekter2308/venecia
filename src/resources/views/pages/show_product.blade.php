@@ -252,7 +252,9 @@
                                             $product->reduced_price
                                             }} грн</div>
                                         @else
-                                            <span>{{$product->price}} </span> грн
+                                            <span style="font-size: 25px;
+                                                       color: #666666;
+                                                       font-weight: bold;">{{$product->price}}</span> грн
                                         @endif
                                     </div>
                                     <div class="related-products">

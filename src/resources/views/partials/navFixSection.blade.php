@@ -100,14 +100,16 @@
                         @endif
 
                     @else
-                        <span class="{{$category->id == $categoryId ? 'current-cat' : ''}}">
+                        @if ($category->products->count() or array_map(function ($child) { return $child->products ? $child->products : null;}, iterator_to_array($category->children)))
+                                <span class="{{$category->id == $categoryId ? 'current-cat' : ''}}">
                             <a href="{{ ($full_url == route('category.showAll', [$category->id, $category->slug]) ) ? "javasript:;" : route('category.showAll', [$category->id, $category->slug]) }}"
                                class="{{($category->is_marked) ? "red" : "" }} {{ ($full_url == route('category.showAll', [$category->id, $category->slug]) ) ? "no-cursor" : "" }}"
                             >
                                 {{ Lang::locale()=='ua' ? $category->category : $category->category_ru}}
                             </a>
                         </span>
-                        @if(in_array($categoryId,$category->children->pluck('id')->toArray()) || $category->id == $categoryId)
+                        @endif
+                        @if(in_array($categoryId, $category->children->pluck('id')->toArray()) || $category->id == $categoryId)
                             @foreach($category->children->sortBy('sequence') as $children)
                                 <ul>
                                     <li>

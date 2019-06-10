@@ -344,7 +344,7 @@ header {
         header .header .header__menu .right_side .header__cart_icon {
           position: relative;
           height: 50px;
-          background-image: url("../../img/top_cart_ico.png");
+          background-image: url("/src/public/img/top_cart_ico.png");
           background-size: contain;
           background-repeat: no-repeat;
           padding-left: 50px; }
@@ -1098,7 +1098,7 @@ a {
             height: 100%;
             content: '';
             overflow: hidden;
-            background-image: url("../../img/svg/check_white.svg");
+            background-image: url("/src/public/img/svg/check_white.svg");
             background-size: 30px;
             z-index: 2; }
         .contentbox .filters .colors .color__checkbox_item input[type="checkbox"]#red + label {
@@ -1504,7 +1504,7 @@ a {
                   height: 100%;
                   content: '';
                   overflow: hidden;
-                  background-image: url("../../img/svg/check_white.svg");
+                  background-image: url("/src/public/img/svg/check_white.svg");
                   background-size: 30px;
                   z-index: 2; }
               .contentbox .single_product .product__info .info .attributes.colors .color__checkbox_item input[type="radio"]#red + label {
@@ -2091,7 +2091,7 @@ a {
   .callback .callback_ico_ua {
     width: 22px;
     height: 122px;
-    background: url(../../css/img/feedback_ico.png) no-repeat left top;
+    background: url(/src/public/css/img/feedback_ico.png) no-repeat left top;
     cursor: pointer;
     position: relative;
     top: -5px;
@@ -2157,7 +2157,7 @@ a {
       cursor: pointer; }
 
 .przycmienie {
-  background: url(../../css/img/pop_bg.png);
+  background: url(/src/public/css/img/pop_bg.png);
   z-index: 350;
   height: 100%;
   width: 100%;
@@ -2867,7 +2867,7 @@ h1, h2, h3, h4, h5, h6 {
           height: 100%;
           content: '';
           overflow: hidden;
-          background-image: url("../../img/svg/check_white.svg");
+          background-image: url("/src/public/img/svg/check_white.svg");
           background-size: 30px;
           z-index: 2; }
       .tingle-modal-box__content .attributes.colors .color__checkbox_item input[type="radio"]#red + label {
