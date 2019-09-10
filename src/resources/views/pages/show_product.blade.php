@@ -245,16 +245,16 @@
                                 <form action="{{route("addToCart")}}" method="post" name="add_to_cart">
                                     {{--<h2>{{  Lang::locale()=='ua' ? $product->product_name  : $product->product_name_ru}}</h2>--}}
                                     {{--<h3>арт : {{$product->product_sku}}</h3>--}}
-                                    <div>
+                                    <div style="font-size: 25px;
+                                                       color: red;
+                                                       font-weight: bold;">
                                         @if($product->reduced_price != 0)
-                                            <div><span style="text-decoration: line-through;"> {{$product->price}}
+                                            <div><span style="text-decoration: line-through; font-size: 16px; font-weight: normal; color: #666666;"> {{$product->price}}
                                                     грн</span><br>{{
                                             $product->reduced_price
                                             }} грн</div>
                                         @else
-                                            <span style="font-size: 25px;
-                                                       color: #666666;
-                                                       font-weight: bold;">{{$product->price}}</span> грн
+                                            <span style="color: #666666;">{{$product->price}} грн</span>
                                         @endif
                                     </div>
                                     <div class="related-products">
